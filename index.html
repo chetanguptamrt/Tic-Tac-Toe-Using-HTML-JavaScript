@@ -18,63 +18,66 @@
         <br/>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-lg-6 col-12">
-                    <div class="text-center">
-                        <div class="container align-self-center" style="background-image: url(./bg.png);" >
-                            <div class="row">
-                                    <div class="col-4 align-self-center" align="center" onclick="chance('0')"> 
-                                        <h2 id="a1">1</h2>
-                                    </div>
-                                    <div class="col-4" align="center" onclick="chance('1')"> 
-                                        <h2 id="a2">2</h2>
-                                    </div>
-                                    <div class="col-4" align="center" onclick="chance('2')"> 
-                                        <h2 id="a3">3</h2>
-                                    </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col-4" align="center" onclick="chance('3')"> 
-                                        <h2 id="a4">4</h2>
-                                    </div>
-                                    <div class="col-4" align="center" onclick="chance('4')">
-                                        <h2 id="a5">5</h2>
-                                    </div>
-                                    <div class="col-4" align="center" onclick="chance('5')">
-                                        <h2 id="a6">6</h2>
-                                    </div>
-                            </div>
-                            <div class="row">
-                                    <div class="col-4" align="center" onclick="chance('6')">
-                                        <h2 id="a7">7</h2>
-                                    </div>
-                                    <div class="col-4" align="center" onclick="chance('7')">
-                                        <h2 id="a8">8</h2>
-                                    </div>
-                                    <div class="col-4" align="center" onclick="chance('8')">
-                                        <h2 id="a9">9</h2>
-                                    </div>
-                            </div>
-                            </table>
-                        </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <br/><br/>
+                    <div class="col-10 offset-1 text-center">
+                        <table class="table">
+                            <tr height="120px">
+                                <td style="border: none;" class="align-self-center" onclick="chance('0')"> 
+                                    <h2 id="a1">1</h2>
+                                </td>
+                                <td style="border-top:none; border-left:5px solid #000000;border-right:5px solid #000000;" class="align-self-center" onclick="chance('1')"> 
+                                    <h2 id="a2">2</h2>
+                                </td>
+                                <td style="border: none;" class="align-self-center" onclick="chance('2')"> 
+                                    <h2 id="a3">3</h2>
+                                </td>
+                            </tr>
+                            <tr height="120px">
+                                <td style="border-top:5px solid #000000; border-bottom:5px solid #000000;" class="align-self-center" onclick="chance('3')"> 
+                                    <h2 id="a4">4</h2>
+                                </td>
+                                <td style="border:5px solid #000000;" class="align-self-center" onclick="chance('4')"> 
+                                    <h2 id="a5">5</h2>
+                                </td>
+                                <td style="border-top:5px solid #000000; border-bottom:5px solid #000000;" class="align-self-center" onclick="chance('5')"> 
+                                    <h2 id="a6">6</h2>
+                                </td>
+                            </tr>
+                            <tr height="120px">
+                                <td style="border: none;" class="align-self-center" onclick="chance('6')"> 
+                                    <h2 id="a7">7</h2>
+                                </td>
+                                <td style="border-left:5px solid #000000;border-right:5px solid #000000;" class="align-self-center" onclick="chance('7')"> 
+                                    <h2 id="a8">8</h2>
+                                </td>
+                                <td style="border: none;" class="align-self-center" onclick="chance('8')"> 
+                                    <h2 id="a9">9</h2>
+                                </td>
+                            </tr>
+                          </table>
                         <br/>
                         <button class="btn btn-secondary btn-sm" onclick="refresh()">Refresh</button>
                     </div>
                 </div>
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-lg-6 col-12 align-self-center">
+
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 align-self-center">
                     <br/>
                     <Div align="center">
                         <h3 id="notice">Player A Chance</h3>
                         <br/><br/>
-                        <table border="1px" cellpadding="10px" width="300px" >
-                            <thead align="center">
+                        <div class="col-8">
+                        <table class=" table table-bordered" cellpadding="10px" width="300px" >
+                            <thead class="text-center bg-dark text-light">
                                 <th width="100px"><label id="aName">Player A</label></th>
                                 <th width="100px"><label id="bName">Player B</label></th>
                             </thead>
-                            <tr align="center">
+                            <tr class="text-center">
                                 <td><label id="playera">0</label></td>
                                 <td><label id="playerb">0</label></td>
                             </tr>
                         </table>
+                        </div>
                         <br/>
                         <button class="text-center btn btn-secondary btn-sm" onclick="location.reload()" >Restart</button>                    
                     </div>
