@@ -5,18 +5,25 @@
             Tic Tac Toe
         </title>
         <link rel="stylesheet" href="bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="container">
-            <h1 align="center">Tic Tac Toe</h1>
-            <br/><br/>
+        
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+            <img src="./bg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Tic Tac Toe
+            </a>
+        </nav>
+        <br/>
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-
-                    <div width="100%" style="background-image: url(./bg.png);" >
+                    <div class="text-center">
+                    <div class="container img-fluid" style="background-image: url(./bg.png); width: 450px;" >
                         <table cellpadding="50px">
                             <tr>
-                                <td width="150px" align="center" onclick="chance('0')"> 
+                                <td width="150px" align="center" onclick="chance('1')"> 
                                     <h2 id="a1">1</h2>
                                 </td>
                                 <td width="150px" align="center" onclick="chance('1')"> 
@@ -49,55 +56,62 @@
                                 </td>
                             </tr>
                         </table>
-                    
-                    </div> 
+                    </div>
+                    <br/>
+                    <button class="btn btn-secondary btn-sm" onclick="refresh()">Refresh</button>
+                    </div>
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                    <Div width="600px" align="center">
-                        <h3 id="notice">Player A chance</h3>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 align-self-center">
+                    <br/>
+                    <Div align="center">
+                        <h3 id="notice">Player A Chance</h3>
                         <br/><br/>
                         <table border="1px" cellpadding="10px" width="300px" >
                             <thead align="center">
                                 <th width="100px"><label id="aName">Player A</label></th>
-                                <th width="100px"><label id="bName">playerB</label></th>
+                                <th width="100px"><label id="bName">Player B</label></th>
                             </thead>
                             <tr align="center">
                                 <td><label id="playera">0</label></td>
                                 <td><label id="playerb">0</label></td>
                             </tr>
                         </table>
-                        <br/><br/>
-                        <input type="button" value="Refresh" onclick="refresh()"/>&nbsp;&nbsp;&nbsp;&nbsp;
-                        <input type="button" value="Restart" onclick="location.reload()"/>
-                        <br/><br/>
-                        <h6 id="status" style="color: red;"></h6>
+                        <br/>
+                        <button class="text-center btn btn-secondary btn-sm" onclick="location.reload()" >Restart</button>                    
                     </div>
+                    <br/>
                 </div>
             </div>
         </div>
         <script>
-            var playerA=prompt("Player A name","");
-            var playerB=prompt("Player B name","");
-            
+            var playerA;
+            var playerB;
             var arr = new Array(document.getElementById("a1"),document.getElementById("a2"),document.getElementById("a3"),
                                 document.getElementById("a4"),document.getElementById("a5"),document.getElementById("a6"),
                                 document.getElementById("a7"),document.getElementById("a8"),document.getElementById("a9"));
             var step = 0;
-            
-            var a = document.getElementById("playera");
-            var b = document.getElementById("playerb");
+            var a;
+            var b;
             var ta = 0;
             var tb = 0;
-            
-            if(playerA==="" || playerA===null){
-                playerA="Player A";
-            }
-            if(playerB==="" || playerB===null){
-                playerB="Player B";
-            }
-            document.getElementById("aName").innerHTML=playerA;
-            document.getElementById("bName").innerHTML=playerB;
-            document.getElementById("notice").innerHTML=playerA+" Chance";
+                
+            $(document).ready(function(){
+                playerA=prompt("Player A name","");
+                playerB=prompt("Player B name","");            
+
+                a = document.getElementById("playera");
+                b = document.getElementById("playerb");
+                
+                if(playerA==="" || playerA===null){
+                    playerA="Player A";
+                }
+                if(playerB==="" || playerB===null){
+                    playerB="Player B";
+                }
+                document.getElementById("aName").innerHTML=playerA;
+                document.getElementById("bName").innerHTML=playerB;
+                document.getElementById("notice").innerHTML=playerA+" Chance";
+            });
 
             function refresh(){
                 for(let i=0;i<9;i++){
@@ -105,7 +119,6 @@
                 }
                 step = 0;
                 document.getElementById("notice").innerHTML=playerA+" Chance";
-            
             }
 
             function check(){
@@ -124,8 +137,7 @@
                 if(arr[1].innerHTML==arr[4].innerHTML && arr[4].innerHTML==arr[7].innerHTML){
                     winner(arr[1].innerHTML);
                 }
-                if(arr[2].innerHTML==arr[5].innerHTML && arr[5].innerHTML==arr[8].innerHTML){
-                    winner(arr[2].innerHTML);
+                    if(arr[2].innerHTML==arr[5].innerHTML && arr[5].innerHTML==arr[8].innerHTML){                        winner(arr[2].innerHTML);
                 }
                 if(arr[0].innerHTML==arr[4].innerHTML && arr[4].innerHTML==arr[8].innerHTML){
                     winner(arr[0].innerHTML);
@@ -137,11 +149,11 @@
             function winner(str){
                 if(str=="O"){
                     a.innerHTML=++ta;
-                    document.getElementById("status").innerHTML=playerA+" win";
+                    alert(playerA+" win");
                 }
                 else if(str=="X") {
                     b.innerHTML=++tb;                   
-                    document.getElementById("status").innerHTML=playerB+" win";
+                    alert(playerB+" win");
                 }
                 for(let i=0;i<9;i++){
                     arr[i].innerHTML=i+1;
@@ -149,6 +161,7 @@
                 step = 0;
                 document.getElementById("notice").innerHTML=playerA+" Chance";
             }
+            
             function chance(str){
                 if(arr[str].innerHTML=="X"||arr[str].innerHTML=="O"){
                     return;
