@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            Tic Tac Toe
-        </title>
+        <title>Tic Tac Toe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     </head>
@@ -11,57 +10,58 @@
         
         <nav class="navbar navbar-dark bg-dark">
             <a class="navbar-brand" href="#">
-            <img src="./bg.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="./bg.png" width="30" height="30" class="d-inline-block align-top" alt="nav">
             Tic Tac Toe
             </a>
+            <button onclick="window.open('https://github.com/chetanguptamrt/Tic-Tac-Toe-Using-HTML-JavaScript')" class="btn btn-outline-secondary my-2 my-sm-0">Source Code</button>
         </nav>
         <br/>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-lg-6 col-12">
                     <div class="text-center">
-                    <div class="container img-fluid" style="background-image: url(./bg.png); width: 450px;" >
-                        <table cellpadding="50px">
-                            <tr>
-                                <td width="150px" align="center" onclick="chance('0')"> 
-                                    <h2 id="a1">1</h2>
-                                </td>
-                                <td width="150px" align="center" onclick="chance('1')"> 
-                                    <h2 id="a2">2</h2>
-                                </td>
-                                <td width="150px" align="center" onclick="chance('2')"> 
-                                    <h2 id="a3">3</h2>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="150px" align="center" onclick="chance('3')"> 
-                                    <h2 id="a4">4</h2>
-                                </td>
-                                <td width="150px" align="center" onclick="chance('4')">
-                                    <h2 id="a5">5</h2>
-                                </td>
-                                <td width="150px" align="center" onclick="chance('5')">
-                                    <h2 id="a6">6</h2>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="150px" align="center" onclick="chance('6')">
-                                    <h2 id="a7">7</h2>
-                                </td>
-                                <td width="150px" align="center" onclick="chance('7')">
-                                    <h2 id="a8">8</h2>
-                                </td>
-                                <td width="150px" align="center" onclick="chance('8')">
-                                    <h2 id="a9">9</h2>
-                                </td>
-                            </tr>
-                        </table>
+                        <div class="container img-fluid" style="background-image: url(./bg.png); width: 450px;" >
+                            <table cellpadding="50px">
+                                <tr>
+                                    <td width="150px" align="center" onclick="chance('0')"> 
+                                        <h2 id="a1">1</h2>
+                                    </td>
+                                    <td width="150px" align="center" onclick="chance('1')"> 
+                                        <h2 id="a2">2</h2>
+                                    </td>
+                                    <td width="150px" align="center" onclick="chance('2')"> 
+                                        <h2 id="a3">3</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="150px" align="center" onclick="chance('3')"> 
+                                        <h2 id="a4">4</h2>
+                                    </td>
+                                    <td width="150px" align="center" onclick="chance('4')">
+                                        <h2 id="a5">5</h2>
+                                    </td>
+                                    <td width="150px" align="center" onclick="chance('5')">
+                                        <h2 id="a6">6</h2>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="150px" align="center" onclick="chance('6')">
+                                        <h2 id="a7">7</h2>
+                                    </td>
+                                    <td width="150px" align="center" onclick="chance('7')">
+                                        <h2 id="a8">8</h2>
+                                    </td>
+                                    <td width="150px" align="center" onclick="chance('8')">
+                                        <h2 id="a9">9</h2>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <br/>
+                        <button class="btn btn-secondary btn-sm" onclick="refresh()">Refresh</button>
                     </div>
-                    <br/>
-                    <button class="btn btn-secondary btn-sm" onclick="refresh()">Refresh</button>
-                    </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 align-self-center">
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-lg-6 col-12 align-self-center">
                     <br/>
                     <Div align="center">
                         <h3 id="notice">Player A Chance</h3>
