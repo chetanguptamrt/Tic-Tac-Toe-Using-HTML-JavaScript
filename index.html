@@ -10,9 +10,10 @@
         <div class="container">
             <h1 align="center">Tic Tac Toe</h1>
             <br/><br/>
-            <table>
-                <tr>
-                    <td  width="450px" style="background-image: url(./bg.png);" >
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+
+                    <div width="450px" style="background-image: url(./bg.png);" >
                         <table cellpadding="50px">
                             <tr>
                                 <td width="150px" align="center" onclick="chance('0')"> 
@@ -48,8 +49,11 @@
                                 </td>
                             </tr>
                         </table>
-                    </td>      
-                    <td width="600px" align="center">
+                    
+                    </div> 
+              </div>
+              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                    <Div width="600px" align="center">
                         <h3 id="notice">Player A chance</h3>
                         <br/><br/>
                         <table border="1px" cellpadding="10px" width="300px" >
@@ -67,9 +71,9 @@
                         <input type="button" value="Restart" onclick="location.reload()"/>
                         <br/><br/>
                         <h6 id="status" style="color: red;"></h6>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <script>
             var playerA=prompt("Player A name","");
