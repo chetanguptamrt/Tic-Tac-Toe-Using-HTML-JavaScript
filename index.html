@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Tic Tac Toe
+        </title>
+        <link rel="stylesheet" href="bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 align="center">Tic Tac Toe</h1>
+            <br/><br/>
+            <table>
+                <tr>
+                    <td  width="450px" style="background-image: url(./bg.png);" >
+                        <table cellpadding="50px">
+                            <tr>
+                                <td width="150px" align="center" onclick="chance('0')"> 
+                                    <h2 id="a1">1</h2>
+                                </td>
+                                <td width="150px" align="center" onclick="chance('1')"> 
+                                    <h2 id="a2">2</h2>
+                                </td>
+                                <td width="150px" align="center" onclick="chance('2')"> 
+                                    <h2 id="a3">3</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="150px" align="center" onclick="chance('3')"> 
+                                    <h2 id="a4">4</h2>
+                                </td>
+                                <td width="150px" align="center" onclick="chance('4')">
+                                    <h2 id="a5">5</h2>
+                                </td>
+                                <td width="150px" align="center" onclick="chance('5')">
+                                    <h2 id="a6">6</h2>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="150px" align="center" onclick="chance('6')">
+                                    <h2 id="a7">7</h2>
+                                </td>
+                                <td width="150px" align="center" onclick="chance('7')">
+                                    <h2 id="a8">8</h2>
+                                </td>
+                                <td width="150px" align="center" onclick="chance('8')">
+                                    <h2 id="a9">9</h2>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>      
+                    <td width="600px" align="center">
+                        <h3 id="notice">Player A chance</h3>
+                        <br/><br/>
+                        <table border="1px" cellpadding="10px" width="300px" >
+                            <thead align="center">
+                                <th width="100px"><label id="aName">Player A</label></th>
+                                <th width="100px"><label id="bName">playerB</label></th>
+                            </thead>
+                            <tr align="center">
+                                <td><label id="playera">0</label></td>
+                                <td><label id="playerb">0</label></td>
+                            </tr>
+                        </table>
+                        <br/><br/>
+                        <input type="button" value="Refresh" onclick="refresh()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="button" value="Restart" onclick="location.reload()"/>
+                        <br/><br/>
+                        <h6 id="status" style="color: red;"></h6>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <script>
+            var playerA=prompt("Player A name","");
+            var playerB=prompt("Player B name","");
+            
+            var arr = new Array(document.getElementById("a1"),document.getElementById("a2"),document.getElementById("a3"),
+                                document.getElementById("a4"),document.getElementById("a5"),document.getElementById("a6"),
+                                document.getElementById("a7"),document.getElementById("a8"),document.getElementById("a9"));
+            var step = 0;
+            
+            var a = document.getElementById("playera");
+            var b = document.getElementById("playerb");
+            var ta = 0;
+            var tb = 0;
+            
+            if(playerA==="" || playerA===null){
+                playerA="Player A";
+            }
+            if(playerB==="" || playerB===null){
+                playerB="Player B";
+            }
+            document.getElementById("aName").innerHTML=playerA;
+            document.getElementById("bName").innerHTML=playerB;
+            document.getElementById("notice").innerHTML=playerA+" Chance";
+
+            function refresh(){
+                for(let i=0;i<9;i++){
+                    arr[i].innerHTML=i+1;
+                }
+                step = 0;
+                document.getElementById("notice").innerHTML=playerA+" Chance";
+            
+            }
+
+            function check(){
+                if(arr[0].innerHTML==arr[1].innerHTML && arr[1].innerHTML==arr[2].innerHTML){
+                    winner(arr[0].innerHTML);
+                }
+                if(arr[3].innerHTML==arr[4].innerHTML && arr[4].innerHTML==arr[5].innerHTML){
+                    winner(arr[3].innerHTML);
+                }
+                if(arr[6].innerHTML==arr[7].innerHTML && arr[7].innerHTML==arr[8].innerHTML){
+                    winner(arr[6].innerHTML);
+                }
+                if(arr[0].innerHTML==arr[3].innerHTML && arr[3].innerHTML==arr[6].innerHTML){
+                    winner(arr[0].innerHTML);
+                }
+                if(arr[1].innerHTML==arr[4].innerHTML && arr[4].innerHTML==arr[7].innerHTML){
+                    winner(arr[1].innerHTML);
+                }
+                if(arr[2].innerHTML==arr[5].innerHTML && arr[5].innerHTML==arr[8].innerHTML){
+                    winner(arr[2].innerHTML);
+                }
+                if(arr[0].innerHTML==arr[4].innerHTML && arr[4].innerHTML==arr[8].innerHTML){
+                    winner(arr[0].innerHTML);
+                }
+                if(arr[2].innerHTML==arr[4].innerHTML && arr[4].innerHTML==arr[6].innerHTML){
+                    winner(arr[2].innerHTML);
+                }
+            }
+            function winner(str){
+                if(str=="O"){
+                    a.innerHTML=++ta;
+                    document.getElementById("status").innerHTML=playerA+" win";
+                }
+                else if(str=="X") {
+                    b.innerHTML=++tb;                   
+                    document.getElementById("status").innerHTML=playerB+" win";
+                }
+                for(let i=0;i<9;i++){
+                    arr[i].innerHTML=i+1;
+                }
+                step = 0;
+                document.getElementById("notice").innerHTML=playerA+" Chance";
+            }
+            function chance(str){
+                if(arr[str].innerHTML=="X"||arr[str].innerHTML=="O"){
+                    return;
+                }
+                if(step==0){
+                    step=1;
+                    arr[str].innerHTML="O";
+                    document.getElementById("notice").innerHTML=playerB+" Chance";
+                } 
+                else {
+                    step=0;
+                    arr[str].innerHTML="X";
+                    document.getElementById("notice").innerHTML=playerA+" Chance";
+                }
+                check();
+            }
+        </script>
+    </body>
+</html>
